@@ -51,7 +51,7 @@ def get_word(wordlist, args): #{{{
     """
     iters = 0
     while iters < 500:
-        word = random.choice(wordlist).strip().lower()
+        word = random.choice(wordlist).strip().lower().capitalize()
 
         if args.punctuation == False:
             if len(word) < args.max_length and word.isalpha() == True:
@@ -76,7 +76,7 @@ def main(args): #{{{
     # Generate n words, each with a length less than args.max_length.
     words = [get_word(wordlist, args) for _ in range(args.num_words)]
 
-    return ''.join(words) #}}}
+    return ' '.join(words) #}}}
 
 
 if __name__ == '__main__':
