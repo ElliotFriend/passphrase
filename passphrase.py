@@ -41,14 +41,14 @@ def get_args(): #{{{
                  "Default : False")
     
     parser.add_argument("-l", "--lowercase",
-			action="store_true",
-			help="Make the first letter of each word lowercase.\n" +
-				 "Default : False")
-	
+            action="store_true",
+            help="Make the first letter of each word lowercase.\n" +
+                 "Default : False")
+
     parser.add_argument("-ns", "--no_space",
-			action="store_true",
-			help="No space between words.\n" +
-			     "Default : False")
+            action="store_true",
+            help="No space between words.\n" +
+                 "Default : False")
 
     args = parser.parse_args()
     return args #}}}
