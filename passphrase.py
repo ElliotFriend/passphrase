@@ -55,6 +55,11 @@ def get_args(): #{{{
             help="Number of passphrases to generate.\n" +
                  "Default : 1")
 
+    parser.add_argument("-o", "--outfile",
+            type=str, default="",
+            help="Path to output file.\n" +
+                 "Default : print to stdout\n")
+
     args = parser.parse_args()
     return args #}}}
 
@@ -102,9 +107,16 @@ def main(args): #{{{
             phrase_list.append(''.join(words))
         elif args.no_space == False:
             phrase_list.append(' '.join(words)) #}}}
-        
-    for i in phrase_list:
-		print i
+
+    if not args.outfile:
+        for i in phrase_list:
+            print i
+    elif args.outfile:
+        with open(args.outfile, 'w') as phrase_file:
+            for i in phrase_list:
+                phrase_file.write("%s\n" % i)
+        phrase_file.close() # just in case
+         
 
 
 if __name__ == '__main__':

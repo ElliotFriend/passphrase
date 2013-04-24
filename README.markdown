@@ -29,3 +29,7 @@
 - -np, --num\_phrases
   * Number of passphrases to generate.
   * Default : 1
+
+- -o, --outfile
+  * Path to output file.
+  * Default : print to stdout
