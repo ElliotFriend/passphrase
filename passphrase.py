@@ -39,6 +39,16 @@ def get_args(): #{{{
             action="store_true",
             help="Allow words with punctuation in them.\n" +
                  "Default : False")
+    
+    parser.add_argument("-l", "--lowercase",
+			action="store_true",
+			help="Make the first letter of each word lowercase.\n" +
+				 "Default : False")
+	
+    parser.add_argument("-ns", "--no_space",
+			action="store_true",
+			help="No space between words.\n" +
+			     "Default : False")
 
     args = parser.parse_args()
     return args #}}}
@@ -51,7 +61,12 @@ def get_word(wordlist, args): #{{{
     """
     iters = 0
     while iters < 500:
-        word = random.choice(wordlist).strip().lower().capitalize()
+        if args.lowercase == True:
+            word = random.choice(wordlist).strip().lower()
+            return word
+        elif args.lowercase == False:
+            word = random.choice(wordlist).strip().lower().capitalize()
+            return word
 
         if args.punctuation == False:
             if len(word) < args.max_length and word.isalpha() == True:
@@ -76,7 +91,10 @@ def main(args): #{{{
     # Generate n words, each with a length less than args.max_length.
     words = [get_word(wordlist, args) for _ in range(args.num_words)]
 
-    return ' '.join(words) #}}}
+    if args.no_space == True:
+        return ''.join(words) #}}}
+    elif args.no_space == False:
+        return ' '.join(words) #}}}
 
 
 if __name__ == '__main__':

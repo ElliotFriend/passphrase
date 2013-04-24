@@ -17,3 +17,11 @@
 - -p, --punctuation
   * Allow words with punctuation in them.
   * Default : False
+
+- -l, --lowercase
+  * Make the first letter of each word lowercase.
+  * Default : False
+
+- -ns, --no\_space
+  * No space between words.
+  * Default : False
