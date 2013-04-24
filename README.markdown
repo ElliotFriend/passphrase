@@ -25,3 +25,7 @@
 - -ns, --no\_space
   * No space between words.
   * Default : False
+
+- -np, --num\_phrases
+  * Number of passphrases to generate.
+  * Default : 1
