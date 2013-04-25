@@ -112,10 +112,11 @@ def main(args): #{{{
         for i in phrase_list:
             print i
     elif args.outfile:
-        with open(args.outfile, 'w') as phrase_file:
+        with open(args.outfile, 'a') as phrase_file:
             for i in phrase_list:
                 phrase_file.write("%s\n" % i)
-        phrase_file.close() # just in case
+        if phrase_file.closed == False:
+			phrase_file.close()
          
 
 
