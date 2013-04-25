@@ -1,5 +1,11 @@
 # Passphrase, a Python clone of passphra.se
 
+Use this script to generate one or more passphrases from words in a specified
+wordlist. You should probably not use the provided wordlist, but your own.
+
+This is more tailored to my work, where it is useful to create several
+passwords/passphrases at once, for batch processing of user accounts.
+
 ### Arguments
 - -n, --num\_words
   * Number of words in the passphrase.
